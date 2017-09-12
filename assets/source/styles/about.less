@@ -1,0 +1,68 @@
+.about {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 0 5% 0;
+  background-color: #e4e7fb;
+  .roboto ();
+    
+    @media @tablet {
+        background-image: url(../img/phone.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 3% 0;
+    }
+    
+    @media @desktop-l {
+        padding-right: 2%;
+    }
+
+  h3 {
+    flex-basis: 100%;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-basis: 25%;
+    margin-bottom: 40px;
+      
+      @media @tablet {
+          flex-basis: 100%;
+          background-color: hsla(0,0%,100%,.8);
+          padding: 10px;
+      }
+
+    h4 {
+      flex-basis: 100%;
+      margin: 0;
+      font-size: 140%;
+      font-weight: 400;
+    }
+
+    p {
+      flex-basis: 100%;
+      margin-top: 0;
+      font-weight: 300;
+    }
+  }
+
+  &__phone {
+    background-image: url("../img/phone.png");
+    background-position: center bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-basis: 30%;
+      
+      @media @tablet {
+          display: none;
+      }
+      
+      @media @desktop {
+          flex-basis: 60%;
+      }
+  }
+}

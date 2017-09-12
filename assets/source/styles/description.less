@@ -1,0 +1,61 @@
+.description {
+    background-color: @light-purple;
+    padding: 0 10% 1%;
+    display: flex;
+    justify-content: center;
+    .roboto ();
+    
+    @media @desktop {
+        padding: 50px 3% 1%;
+    }
+    
+    @media @tablet {
+        background-image: url(../img/labirint.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    &__text {
+        flex-basis: 40%;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        
+        @media @desktop {
+            flex-basis: 50%;
+        }
+        
+        @media @tablet {
+            flex-basis: 100%;
+            background-color: hsla(0,0%,100%,.8);
+        }
+        
+        h3 {
+            margin: 0 20px;
+            text-align: left;
+        }
+        
+        p {
+            font-size: 140%;
+            font-weight: 300;
+            line-height: 1.3em;
+            text-align: left;
+            margin: 20px;
+        }
+    }
+    
+    &__maze {
+        background-image: url(../img/labirint.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        flex-basis: 40%;
+        
+        @media @tablet {
+            display: none;
+        }
+    }
+}

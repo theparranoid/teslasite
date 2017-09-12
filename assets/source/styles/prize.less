@@ -1,0 +1,57 @@
+.prize {
+    padding: 3% 25% 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .roboto ();
+    text-align: left;
+    
+    h3 {
+        font-size: 200%;
+    }
+    
+    @media @desktop {
+        padding: 3% 15% 3%;
+    }
+
+    @media @tablet {
+        padding: 3% 10% 3%;
+    }
+    
+    @media @mobile {
+        background-image: url("../img/moneybag.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 3%;
+        text-align: center;
+    }
+
+    &__text {
+        p {
+            font-size: 130%;
+            color: #111;
+            font-weight: 300;
+
+        }
+        
+        @media @mobile {
+            background-color: hsla(0, 0%, 100%, .8);
+            padding: 10px;
+        }
+    }
+
+    img {
+        @media @mobile {
+            display: none;
+        }
+    }
+    
+    h3 {
+        text-align: left;
+        
+        @media @mobile {
+            text-align: center;
+        }
+    }
+}

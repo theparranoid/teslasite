@@ -1,0 +1,111 @@
+.general {
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    min-height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: white;
+    padding-top: 50px;
+    .exo ();
+    
+    
+    /*Стили заголовка*/
+    
+    &__heading {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        top: 35vh;
+        text-shadow: 5px 5px 5px black;
+        flex-basis: 100%;
+        font-size: 6vh;
+        text-align: center;
+        font-weight: 300;
+        text-transform: uppercase;
+        
+        @media @mobile {
+            font-size: 4vh;
+        }
+        
+        strong {
+            font-weight: 800;
+            font-size: 11vh;
+        }
+    }
+    
+    /*Стили РОИ и цены*/
+    
+    &__price {
+        display: flex;
+        flex-wrap: wrap;
+        align-self: center;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 4vh;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-shadow: 3px 3px 3px black;
+        
+        span {
+            margin: 20px;
+            
+            @media @mobile {
+                margin: 0;
+                margin-left: 20px;
+            }
+        }
+
+        @media @mobile {
+            justify-content: center;
+        }
+    }
+    
+    
+    /*Стили кнопки*/
+    
+    &__btn {
+        .exo;
+        background-color: @red;
+        border: none;
+        color: white;
+        font-size: 180%;
+        font-weight: 600;
+        text-transform: uppercase;
+        height: 80px;
+        width: 370px;
+        align-self: center;
+        margin-bottom: 50px;
+        .roboto();
+        cursor: pointer;
+        
+        @media @mobile {
+            width: 70%;
+            height: 50px;
+            font-size: 120%;
+        }
+    }
+}
+
+.menu-icon {
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/icons/menu.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 99;
+    cursor: pointer;
+    display: none;
+
+    @media @tablet {
+        display: block;
+    }
+}

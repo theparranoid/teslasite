@@ -1,0 +1,72 @@
+.blueprint {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  padding: 3% 25% 3%;
+  .roboto ();
+  border-top: 1px solid #ddd;
+    
+  
+  @media @desktop-l {
+    padding: 3% 15% 3%;  
+  }
+    
+  
+  @media @desktop {
+    padding: 3% 10% 3%;  
+  }
+    
+    
+  @media @tablet {
+    padding: 3% 5% 3%;
+  }
+
+
+  @media @mobile {
+    padding: 0;
+  }
+
+  div {
+    flex-basis: 900px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    .blueprint__icon {
+     flex-basis: 25%;
+      background-image: url("../img/blueprint-icon.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: auto;
+        
+      @media @mobile {
+          background-position: 50% 5%;
+      }
+    }
+
+    .blueprint__text {
+      flex-basis: 75%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      font-size: 120%;
+
+      h4 {
+        padding: 0;
+        margin: 0;
+        font-size: 120%;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    cursor: pointer;
+
+    @media @mobile {
+      max-height: 150px;
+    }
+  }
+}

@@ -1,0 +1,275 @@
+.media {
+  background:#eee url('../img/gallery-bg.jpg');
+  padding: 1% 0 3%;
+  color:#fff;
+  width: 100%;
+  text-align:center;
+  margin: 0;
+
+            
+    p {
+        color: hsla(0,0%,100%,.9);
+        display: block;
+        width: 600px;
+        font-weight: 100;
+        line-height: 1.3em;
+        font-size: 1.4em;
+        margin: 30px auto;
+        text-align: center;
+        .exo();
+        
+        
+        @media @mobile {
+          width:90%;
+        }
+    }
+}
+.gallery-left,.gallery-right {
+  list-style:none;
+  position:absolute;
+  background:transparent url('../img/arrows.png');
+  background-size:100% 200%;
+  left:-120px;
+  width:100px;
+  height:100px;
+  margin-top:150px;
+  cursor:pointer;
+
+  &:hover{
+    background-position:0 100px;
+  }
+
+  @media @tablet {
+    display:none;
+  }
+
+  @media @mobile {
+    margin-top:60px;
+    width:50px;
+    height:50px;
+    left:0;
+  }
+}
+/*.gallery-left:hover,.gallery-right:hover {
+  background-position:0 100px;
+}*/
+.gallery-right {
+  transform:rotate(180deg);
+  left:inherit;
+  right:-120px;
+  @media @mobile {
+    right:0;
+  }
+}
+.gallery {
+  position:relative;
+  padding:20px 0;
+  margin:0 auto;
+  width:700px;
+
+  @media @mobile {
+    width:100%;
+  }
+
+  &__item {
+    display:none;
+  }
+  &__item img {
+    width:700px;
+
+    @media @mobile {
+      width:100%;
+    }
+  }
+  &__item.active {
+    display:block;
+  }
+  &__item.active img {
+    box-shadow:rgba(255,255,255,.2) 0 0 50px;
+  }
+}
+
+.mini {
+  position:relative;
+  text-align:left;
+  font-size:0;
+  width:715px;
+  padding: 0;
+  left:50%;
+  margin-left:-357.5px;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media @mobile {
+    width:100%;
+    left:0;
+    margin:0;
+  }
+
+  &__item {
+    display:inline-block;
+    list-style:none;
+    cursor:pointer;
+    @media @mobile {
+      width:33%;
+    }
+  }
+  &__item img {
+    width:128px;
+    margin:0 7.5px;
+    margin-bottom:15px;
+
+    @media @mobile {
+      width:100%;
+      margin:0;
+    }
+  }
+  &__item:hover img {
+    box-shadow:rgba(255,255,255,.3) 0 0 10px;
+  }
+
+  &__item.active img {
+    box-shadow:rgba(255,255,255,.3) 0 0 10px;
+  }
+
+}
+
+.btn-gallery {
+  background:none;
+  border:@green solid 2px;
+  color:@green;
+  padding:15px 20px;
+  font-size:1.2em;
+  margin:30px 0;
+  text-transform:uppercase;
+  border-radius:2px;
+
+  &:hover {
+    border-color:#00ff49;
+    color:#00ff49;
+    /*background:rgba(11, 216, 18,.1);*/
+  }
+
+  @media @mobile {
+    font-size:1em;
+    white-space:nowrap;
+  }
+}
+
+.media--white {
+  background:#fff;
+  color:#111;
+
+  p {
+    .roboto ();
+    color:#111;
+    font-weight:300;
+  }
+}
+
+.media--blue {
+  background:@light-purple;
+  color:#111;
+  margin-bottom:40px;
+  padding-bottom:50px;
+  background:#e4e7fb url('../img/labirint.jpg') 25% center no-repeat;
+  background-size:auto 80%;
+
+
+  .btn {
+    .roboto ();
+    display:block;
+    line-height:30px;
+    text-transform:uppercase;
+
+    span {
+      border-bottom:#000 solid 1px;
+      font-weight:500;
+    }
+
+    i {
+      background:@red;
+      border-radius:50%;
+      height:30px;
+      width:30px;
+      text-align:center;
+      line-height:30px;
+      padding-left:3px;
+      font-size:0.7em;
+      color:#fff;
+    }
+  }
+
+  @media @mobile {
+    background-image:none;
+  }
+
+  .wrap {
+    position:relative;
+    width:50%;
+    left:50%;
+    text-align:center;
+
+    @media @mobile {
+      width:100%;
+      left:0;
+      text-align:center;
+    }
+  }
+
+  p {
+    padding:0;
+    .roboto ();
+    color:#111;
+    font-weight:300;
+  }
+}
+
+.media-bordered {
+  display:block;
+  // padding:0 30px 0 0;
+  margin-top:20px;
+
+  .wrap {
+    position:relative;
+    width:70%;
+    left:0;
+    text-align:left;
+
+    @media @mobile {
+      width:100%;
+      text-align:center;
+    }
+  }
+
+
+  @media @mobile {
+    padding:0 10px;
+  }
+
+  h3 {
+    .roboto ();
+    font-size:1.6em;
+    text-align:left;
+
+    @media @mobile {
+      font-size:1.4em;
+    }
+  }
+  p{
+    text-align:left;
+    margin:0;
+    padding:0;
+    margin-top:20px;
+    margin-bottom:50px;
+
+    @media @mobile {
+      margin:0;
+    }
+  }
+}
+
+.text-center {
+  text-align:center;
+  margin-bottom:60px;
+}
