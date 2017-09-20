@@ -284,13 +284,15 @@
     cursor:pointer;
   }
   &__content {
-    display:none;
+    transition:all 0s ease-in;
+    width: 240px;
+    height: 100px;
     .roboto ();
     position:relative;
     font-size:.8em;
     max-width:240px;
-    right:0;
-    bottom:40px;
+    right:-200px;
+    top: -40px;
     padding: 0;
     color:#fff;
     border-radius:3px;
@@ -330,12 +332,14 @@
   }
 
   &:hover {
-    width:240px;
     border-radius: 3px;
     transition:all 0.2s ease-in;
 
     .help__content {
-      display:block;
+      right: 180px;
+      top: -40px;
+      height: 100px;
+      transition:all 0.2s ease-in;
     }
 
     .help-icon {

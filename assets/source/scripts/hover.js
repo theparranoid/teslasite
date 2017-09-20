@@ -267,22 +267,32 @@ $(document).on('click','.more-comp',function(){
 
 });
 
+function closeMenu() {
+    $(".header__mobile").removeClass("header__active");
+    $(".header__menu").show();
+    $(".header__menu-close").hide();
+}
 
-$('.menu-icon').on('click',function(){
-    $('.header').addClass('header__active');
-    $('.menu-icon').hide();
-  });
+function showMenu() {
+    $(".header__mobile").addClass("header__active");
+    $(".header__menu").hide();
+    $(".header__menu-close").show();
+}
 
 
+$('.header__menu').on('click',function(){
+    showMenu();
+});
+
+$('.header__mobile a').on('click', function(){
+    closeMenu();
+});
     
 $(document).mouseup(function (e){
-	var div = $(".header");
-	if (!div.is(e.target)
-	    && div.has(e.target).length === 0) {
-		div.removeClass('header__active');
+	var div = $(".header__mobile");
+	if (!div.is(e.target) && div.has(e.target).length === 0) {
+		closeMenu();
 	};
-    
-    $('.menu-icon').show();
 });
 
 // $(document).on('click','.help-icon, .help__title',function(){

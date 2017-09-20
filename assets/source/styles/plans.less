@@ -22,7 +22,7 @@
         text-align: center;
         .exo ();
         margin: 0 auto;
-        padding: 20px 0;
+        padding: 40px 0;
         
         @media @mobile {
             display: none;
@@ -125,9 +125,11 @@
             list-style: none;
             
             li {
-                margin: 10px 5px;
+                margin: 15px 5px;
                 position: relative;
                 word-spacing: 5px;
+                font-size: 95%;
+                font-weight: 400;
                 
                 &:before {
                     content: "";
@@ -157,6 +159,7 @@
         span {
             flex-basis: 70%;
             color: #777;
+            font-size: 100%;
             
             @media @mobile {
                 flex-basis: 80%;
@@ -166,7 +169,7 @@
                 color: @deeppurple;
                 margin-bottom: 20px;
                 margin-top: 10px;
-                font-size: 130%;
+                font-size: 100%;
                 font-weight: bold;
             }
         }

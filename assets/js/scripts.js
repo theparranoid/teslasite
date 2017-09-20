@@ -1,20 +1,28 @@
 "use strict";
 
+function closeMenu() {
+    $(".header__mobile").removeClass("header__active"), $(".header__menu").show(), $(".header__menu-close").hide();
+}
+
+function showMenu() {
+    $(".header__mobile").addClass("header__active"), $(".header__menu").hide(), $(".header__menu-close").show();
+}
+
 $(document).ready(function() {
-    $('a[href="#"]').click(function(t) {
-        t.preventDefault();
+    $('a[href="#"]').click(function(e) {
+        e.preventDefault();
     });
-    var t = 0, e = 0;
+    var e = 0, t = 0;
     $(window).scroll(function() {
-        t = $(this).scrollTop();
+        e = $(this).scrollTop();
     }), setTimeout(function() {
         $(document).mousemove(function(a) {
-            a.pageY - t <= 5 && 1 != e && ($(".modal-call").addClass("active"), 0 === $(".modal-bg").length && $(".modal-call").after('<div class="modal-bg"></div>'), 
-            e = 1);
+            a.pageY - e <= 5 && 1 != t && ($(".modal-call").addClass("active"), 0 === $(".modal-bg").length && $(".modal-call").after('<div class="modal-bg"></div>'), 
+            t = 1);
         });
     }, 15e3), setTimeout(function() {
-        1 != e && ($(".modal-call").addClass("active"), 0 === $(".modal-bg").length && $(".modal-call").after('<div class="modal-bg"></div>'), 
-        e = 1);
+        1 != t && ($(".modal-call").addClass("active"), 0 === $(".modal-bg").length && $(".modal-call").after('<div class="modal-bg"></div>'), 
+        t = 1);
     }, 12e4), $(".js-form").on("click", function() {
         $(this).hasClass("js-form-help") ? ($(".modal h3").html("Still have questions?"), 
         $(".modal p").html("Our manager can call you and answer any of them!"), $("html").addClass("overflow")) : ($(".modal h3").html("Leave a request"), 
@@ -22,25 +30,25 @@ $(document).ready(function() {
         $("html").addClass("overflow")), $(".modal").before('<div class="modal-bg"></div>'), 
         $(".modal").fadeIn(), $("html").addClass("overflow");
     }), $(".mini .mini__item").click(function() {
-        var t = $(this).data("id");
+        var e = $(this).data("id");
         $(".gallery__item").removeClass("active"), $(".mini__item").removeClass("active"), 
-        $(this).addClass("active"), $('.gallery__item[data-id="' + t + '"]').addClass("active");
+        $(this).addClass("active"), $('.gallery__item[data-id="' + e + '"]').addClass("active");
     }), $(".gallery-left").click(function() {
-        var t = $(".mini li").length, e = $(".mini__item.active").data("id") - 1;
-        e < 1 && (e = t), $(".gallery__item").removeClass("active"), $(".mini__item").removeClass("active"), 
-        $('.gallery__item[data-id="' + e + '"]').addClass("active"), $('.mini__item[data-id="' + e + '"]').addClass("active");
+        var e = $(".mini li").length, t = $(".mini__item.active").data("id") - 1;
+        t < 1 && (t = e), $(".gallery__item").removeClass("active"), $(".mini__item").removeClass("active"), 
+        $('.gallery__item[data-id="' + t + '"]').addClass("active"), $('.mini__item[data-id="' + t + '"]').addClass("active");
     }), $(".gallery-right").click(function() {
-        var t = $(".mini li").length, e = $(".mini__item.active").data("id") + 1;
-        e > t && (e = 1), $(".gallery__item").removeClass("active"), $(".mini__item").removeClass("active"), 
-        $('.gallery__item[data-id="' + e + '"]').addClass("active"), $('.mini__item[data-id="' + e + '"]').addClass("active");
+        var e = $(".mini li").length, t = $(".mini__item.active").data("id") + 1;
+        t > e && (t = 1), $(".gallery__item").removeClass("active"), $(".mini__item").removeClass("active"), 
+        $('.gallery__item[data-id="' + t + '"]').addClass("active"), $('.mini__item[data-id="' + t + '"]').addClass("active");
     }), $(".mini__item img").hover(function() {
         if ($(this).parent().hasClass("active")) ; else {
-            var t = $(".mini__item.active img");
-            t.css({
+            var e = $(".mini__item.active img");
+            e.css({
                 transform: "none",
                 outline: "none"
             }), $(this).click(function() {
-                t.attr("style", "none");
+                e.attr("style", "none");
             });
         }
     }, function() {
@@ -50,40 +58,40 @@ $(document).ready(function() {
         $(this).remove();
     }), $(".header__menu").click(function() {
         $(this).find("ul").toggleClass("active");
-    }), ga(function(t) {
-        var e = t.get("clientId");
+    }), ga(function(e) {
+        var t = e.get("clientId");
         $.ajax({
-            url: "http://tesla.flexcrm.ru/admin/api/tracker?lang=en&id=" + e,
+            url: "http://tesla.flexcrm.ru/admin/api/tracker?lang=en&id=" + t,
             dataType: "jsonp",
-            success: function(t) {
-                $("body").append(t.result);
+            success: function(e) {
+                $("body").append(e.result);
             }
-        }), $(document).on("submit", ".modal form", function(t) {
-            if (t.preventDefault(), $(this).validate(), $(this).find("button").attr("disabled", !0).text("Sending.."), 
+        }), $(document).on("submit", ".modal form", function(e) {
+            if (e.preventDefault(), $(this).validate(), $(this).find("button").attr("disabled", !0).text("Sending.."), 
             $(this).valid()) {
                 var a = $(this).serialize();
                 $.ajax({
                     url: "send.php",
-                    data: a + "&gid=" + e,
+                    data: a + "&gid=" + t,
                     type: "POST",
-                    success: function(t) {
-                        $(this).find("button").attr("disabled", !1).text("Send"), $(".modal").html(t), yaCounter42137194.reachGoal("ORDER");
+                    success: function(e) {
+                        $(this).find("button").attr("disabled", !1).text("Send"), $(".modal").html(e), yaCounter42137194.reachGoal("ORDER");
                     },
                     error: function() {
                         $(this).find("button").attr("disabled", !1).text("Send");
                     }
                 });
             } else $(this).find("button").attr("disabled", !1).text("Send");
-        }), $(document).on("submit", ".modal-call form", function(t) {
-            if ($(this).validate(), t.preventDefault(), $(this).find("button").attr("disabled", !0).text("Sending.."), 
+        }), $(document).on("submit", ".modal-call form", function(e) {
+            if ($(this).validate(), e.preventDefault(), $(this).find("button").attr("disabled", !0).text("Sending.."), 
             $(this).valid()) {
                 var a = $(this).serialize();
                 $.ajax({
                     url: "send.php",
-                    data: a + "&gid=" + e,
+                    data: a + "&gid=" + t,
                     type: "POST",
-                    success: function(t) {
-                        $(this).find("button").attr("disabled", !1).text("Send"), $(".modal-call").html(t), 
+                    success: function(e) {
+                        $(this).find("button").attr("disabled", !1).text("Send"), $(".modal-call").html(e), 
                         yaCounter42137194.reachGoal("ORDER"), $("html").removeClass("overflow");
                     },
                     error: function() {
@@ -91,16 +99,16 @@ $(document).ready(function() {
                     }
                 });
             } else $(this).find("button").attr("disabled", !1).text("Send");
-        }), $(document).on("submit", ".oracle form", function(t) {
-            if (t.preventDefault(), $(this).validate(), $(this).find("button").attr("disabled", !0).text("Sending.."), 
+        }), $(document).on("submit", ".oracle form", function(e) {
+            if (e.preventDefault(), $(this).validate(), $(this).find("button").attr("disabled", !0).text("Sending.."), 
             $(this).valid()) {
                 var a = $(this).serialize();
                 $.ajax({
                     url: "send.php",
-                    data: a + "&gid=" + e,
+                    data: a + "&gid=" + t,
                     type: "POST",
-                    success: function(t) {
-                        $(this).find("button").attr("disabled", !1).text("Send"), $(".form__result").html(t), 
+                    success: function(e) {
+                        $(this).find("button").attr("disabled", !1).text("Send"), $(".form__result").html(e), 
                         yaCounter42137194.reachGoal("ORDER"), $("html").removeClass("overflow");
                     },
                     error: function() {
@@ -114,36 +122,37 @@ $(document).ready(function() {
     $(".modal-bg").remove(), $(this).parent().hasClass("modal") && $(this).parent().fadeOut(), 
     $(".modal-call").removeClass("active"), $(".modal").fadeOut(), $(".modal").html($(".default").html()), 
     $("html").removeClass("overflow");
-}), $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(t) {
+}), $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(e) {
     if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
-        var e = $(this.hash);
-        (e = e.length ? e : $("[name=" + this.hash.slice(1) + "]")).length && (t.preventDefault(), 
+        var t = $(this.hash);
+        (t = t.length ? t : $("[name=" + this.hash.slice(1) + "]")).length && (e.preventDefault(), 
         $("html, body").animate({
-            scrollTop: e.offset().top - 50
+            scrollTop: t.offset().top - 50
         }, 1e3, function() {
-            var t = $(e);
-            if (t.focus(), t.is(":focus")) return !1;
-            t.attr("tabindex", "-1"), t.focus();
+            var e = $(t);
+            if (e.focus(), e.is(":focus")) return !1;
+            e.attr("tabindex", "-1"), e.focus();
         }));
     }
 }), $(document).on("click", ".more-comp", function() {
-    var t = $(this).parent();
+    var e = $(this).parent();
     $(this).remove();
-    var e = t.data("id");
-    console.log(e);
+    var t = e.data("id");
+    console.log(t);
     var a = $(".comp.wrapper").not(".comp--mobile").clone().addClass("comp--mobile").css("display", "table");
-    $("thead", a).remove(), $("tr", a).each(function(t, a) {
-        $("td", a).each(function(t, a) {
-            0 != t && t != e && $(a).remove();
+    $("thead", a).remove(), $("tr", a).each(function(e, a) {
+        $("td", a).each(function(e, a) {
+            0 != e && e != t && $(a).remove();
         });
     });
-    var i = t.find("h4").text();
-    t.after(a), t.after('<h4 class="comp__heading--phone">DETAILED CONFIGURATION:<br/> ' + i + "</h4>");
-}), $(".menu-icon").on("click", function() {
-    $(".header").addClass("header__active"), $(".menu-icon").hide();
-}), $(document).mouseup(function(t) {
-    var e = $(".header");
-    e.is(t.target) || 0 !== e.has(t.target).length || e.removeClass("header__active"), 
-    $(".menu-icon").show();
+    var i = e.find("h4").text();
+    e.after(a), e.after('<h4 class="comp__heading--phone">DETAILED CONFIGURATION:<br/> ' + i + "</h4>");
+}), $(".header__menu").on("click", function() {
+    showMenu();
+}), $(".header__mobile a").on("click", function() {
+    closeMenu();
+}), $(document).mouseup(function(e) {
+    var t = $(".header__mobile");
+    t.is(e.target) || 0 !== t.has(e.target).length || closeMenu();
 });
 //# sourceMappingURL=scripts.js.map
