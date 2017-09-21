@@ -290,7 +290,7 @@ $('.header__mobile a').on('click', function(){
     
 $(document).mouseup(function (e){
 	var div = $(".header__mobile");
-	if (!div.is(e.target) && div.has(e.target).length === 0) {
+	if (!div.is(e.target) && div.has(e.target).length === 0 && div.hasClass("header__active")) {
 		closeMenu();
 	};
 });

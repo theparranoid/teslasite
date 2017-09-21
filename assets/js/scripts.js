@@ -153,6 +153,6 @@ $(document).ready(function() {
     closeMenu();
 }), $(document).mouseup(function(e) {
     var t = $(".header__mobile");
-    t.is(e.target) || 0 !== t.has(e.target).length || closeMenu();
+    !t.is(e.target) && 0 === t.has(e.target).length && t.hasClass("header__active") && closeMenu();
 });
 //# sourceMappingURL=scripts.js.map
